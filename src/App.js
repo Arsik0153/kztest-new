@@ -1,17 +1,10 @@
 import React from 'react'
-import styled from 'styled-components'
-
-const Wrapper = styled.div`
-  background-color: red;
-  margin-top: 10px;
-`
+import Cabinet from './components/Cabinet/Cabinet'
 
 const App = () => {
   return (
     <div className="App">
-      <Wrapper>
-        
-      </Wrapper>
+      <Cabinet />
     </div>
   );
 }
