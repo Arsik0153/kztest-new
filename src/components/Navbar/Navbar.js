@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 
 const Bar = styled.nav`
@@ -8,6 +8,11 @@ const Bar = styled.nav`
     border: 1px solid #F5F6FA;
     box-shadow: 0px 5px 16px rgba(215, 217, 224, 0.09);
     background: #fff;
+    @media (max-width: 768px) {
+        width: 100%;
+        padding-top: 15px;
+        height: auto;
+    }
 `
 
 const Logo = styled.a`
@@ -18,11 +23,23 @@ const Logo = styled.a`
     display: inline-block;
     width: 100%;
     text-align: center;
+    padding-bottom: 20px;
+`
+
+const Menu = styled.svg`
+    position: absolute;
+    margin-left: 30px;
+    margin-top: 10px;
+    @media (min-width: 768px) {
+        display: none;
+    }
 `
 
 const List = styled.ul`
-    width: 210px;
     margin-top: 50px;
+    @media (max-width: 768px) {
+        display: ${props => props.open === true ? "block" : "none"};
+    }
 `
 
 const Icon = styled.svg`
@@ -47,10 +64,16 @@ const Link = styled.a`
 `
 
 const Navbar = () => {
+
+    const [menuOpen, setMenuOpen] = useState(false);
+
     return (
         <Bar>
+            <Menu onClick={()=>{setMenuOpen(!menuOpen)}}>
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#000000" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+            </Menu>
             <Logo href="">kztest</Logo>
-            <List>
+            <List open={menuOpen}>
                 <Link href="" active>
                     <Icon width="21" height="21" viewBox="0 0 19 23" xmlns="http://www.w3.org/2000/svg">
                     <path d="M9.4997 11.2485C12.0569 11.2485 14.1301 8.73047 14.1301 5.62429C14.1301 2.51804 13.4495 0 9.4997 0C5.54994 0 4.86914 2.51804 4.86914 5.62429C4.86914 8.73047 6.94236 11.2485 9.4997 11.2485Z" fill="#32323A"/>

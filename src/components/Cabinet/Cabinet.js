@@ -5,6 +5,8 @@ import Navbar from '../Navbar/Navbar'
 
 const Bg = styled.div`
     background: #F5F6FA;
+    display: flex;
+    flex-direction: row;
 `
 
 const Cabinet = () => {
