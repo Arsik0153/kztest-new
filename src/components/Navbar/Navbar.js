@@ -29,15 +29,18 @@ const Logo = styled.a`
 const Menu = styled.svg`
     position: absolute;
     margin-left: 30px;
-    margin-top: 10px;
+    margin-top: 3px;
     @media (min-width: 768px) {
         display: none;
     }
 `
 
 const List = styled.ul`
+    width: 210px;
     margin-top: 50px;
     @media (max-width: 768px) {
+        width: 100%;
+        margin-top: 0;
         display: ${props => props.open === true ? "block" : "none"};
     }
 `

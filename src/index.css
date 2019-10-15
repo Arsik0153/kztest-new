@@ -17,3 +17,7 @@ body {
 a {
   text-decoration: none;
 }
+
+textarea:focus, input:focus, div[contenteditable="true"]:focus, button:focus{
+  outline: none;
+}
